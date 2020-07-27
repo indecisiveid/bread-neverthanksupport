@@ -17,11 +17,6 @@ Start:
 Stop: 
  launchctl unload /usr/local/cellar/nginx/1.19.0/homebrew.mxcl.nginx.plist
 
-/usr/local/var/www/pretoriasalonspa-dev.com
-
-mailchimp:
-pretoriasalonspa  / pretoria0000!S0Z02
-
 ## nginx on linux
 sudo /etc/init.d/nginx restart
 sudo /etc/init.d/nginx start
