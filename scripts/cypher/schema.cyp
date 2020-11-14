@@ -30,7 +30,6 @@ CREATE INDEX ON :Contributor(status);
 CREATE INDEX ON :Contributor(display_name);
 CREATE INDEX ON :Contributor(needed_by_ts);
 CREATE CONSTRAINT ON (contributor:Contributor) ASSERT contributor.id IS UNIQUE;
-CREATE CONSTRAINT ON (contributor:Contributor) ASSERT contributor.role IS UNIQUE;
 
 // Project
 CREATE INDEX ON :Project(display_name);
@@ -39,6 +38,7 @@ CREATE INDEX ON :Project(is_flagged);
 CREATE INDEX ON :Project(created_ts);
 CREATE INDEX ON :Project(deadline_ts);
 CREATE CONSTRAINT ON (project:Project) ASSERT project.id IS UNIQUE;
+CREATE CONSTRAINT ON (project:Project) ASSERT project.display_name IS UNIQUE;
 
 // Organization
 CREATE INDEX ON :Organization(type);
