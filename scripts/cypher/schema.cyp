@@ -32,7 +32,6 @@ CREATE INDEX ON :Contributor(needed_by_ts);
 CREATE CONSTRAINT ON (contributor:Contributor) ASSERT contributor.id IS UNIQUE;
 
 // Project
-CREATE INDEX ON :Project(display_name);
 CREATE INDEX ON :Project(status);
 CREATE INDEX ON :Project(is_flagged);
 CREATE INDEX ON :Project(created_ts);

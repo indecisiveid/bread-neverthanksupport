@@ -1176,11 +1176,11 @@ input[type="text"] {
         -ms-transform: rotate(-180deg);
         -o-transform: rotate(-180deg);
         transform: rotate(-180deg); }
-      #colorlib-offcanvas ul li.btn-cta {
+      /* #colorlib-offcanvas ul li.btn-cta {
         margin-top: 5px; }
         #colorlib-offcanvas ul li.btn-cta a {
           border-bottom: 1px solid #4aca85;
-          padding-bottom: 5px; }
+          padding-bottom: 5px; } */
 
 .gototop {
   position: fixed;
