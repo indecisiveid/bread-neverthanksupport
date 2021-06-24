@@ -1,0 +1,233 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2513
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fnil\fcharset0 Menlo-Regular;\f1\fnil\fcharset0 HelveticaNeue;}
+{\colortbl;\red255\green255\blue255;\red0\green0\blue0;\red27\green29\blue31;\red244\green244\blue244;
+\red194\green126\blue101;\red23\green23\blue23;\red234\green234\blue234;\red37\green38\blue45;}
+{\*\expandedcolortbl;;\csgray\c0;\cssrgb\c14118\c15294\c16078;\cssrgb\c96471\c96471\c96471;
+\cssrgb\c80784\c56863\c47059;\cssrgb\c11765\c11765\c11765;\cssrgb\c93333\c93333\c93333;\cssrgb\c19216\c20000\c23137;}
+\margl1440\margr1440\vieww11140\viewh10580\viewkind0
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf2 \CocoaLigature0 Example CURLs:\
+\
+Testing CURL:\
+\pard\pardeftab720\partightenfactor0
+
+\fs26 \cf3 \cb4 \expnd0\expndtw0\kerning0
+\CocoaLigature1 curl -X GET '
+\fs24 \cf2 \cb1 \kerning1\expnd0\expndtw0 \CocoaLigature0 http://127.0.0.1:8001/test'\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\
+Getting project cards:\
+\pard\pardeftab720\partightenfactor0
+
+\fs26 \cf3 \cb4 \expnd0\expndtw0\kerning0
+\CocoaLigature1 curl -X GET '
+\fs24 \cf2 \cb1 \kerning1\expnd0\expndtw0 \CocoaLigature0 http://127.0.0.1:8000/project
+\fs26 \cf3 \cb4 \expnd0\expndtw0\kerning0
+\CocoaLigature1 ?category='Computer+Technology'&num_recs=6&index=0'\
+\
+curl -X GET '
+\fs24 \cf2 \cb1 \kerning1\expnd0\expndtw0 \CocoaLigature0 http://127.0.0.1:8000/project
+\fs26 \cf3 \cb4 \expnd0\expndtw0\kerning0
+\CocoaLigature1 ?
+\fs24 \cf5 \cb6 \outl0\strokewidth0 \strokec5 num_recs=1&index=0
+\fs26 \cf3 \cb4 \outl0\strokewidth0 '
+\fs24 \cf2 \cb1 \kerning1\expnd0\expndtw0 \CocoaLigature0 \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\
+Creating a user:\
+curl -X PUT -H "Content-Type: application/json" -d '\{"data": \{  \
+  "username": "fourthuser",\
+  "password": "Password123",\
+  "f_name": "John",\
+  "l_name": "Dinh",\
+  "email": "jdinh@gmail.com",\
+  "description": "I joined to support",\
+  "dob": "1996-02-15",\
+  "city": "Philadelphia",\
+  "province": "Pennsylvania",\
+  "zipcode": "19149",\
+  "avatar": "avatarurlfourth",\
+  "last_logged_in_ts": "2020-09-16",\
+  "member_since_ts": "2020-09-16"\
+\}\}' http://127.0.0.1:8000/user\
+\
+Getting user credentials:\
+\pard\pardeftab720\partightenfactor0
+
+\fs26 \cf3 \cb4 \expnd0\expndtw0\kerning0
+\CocoaLigature1 curl -X POST 
+\fs24 \cf2 \cb1 \kerning1\expnd0\expndtw0 \CocoaLigature0 -H "Content-Type: application/json" -d '\{"data":\{"password":"Password123"\}\}' http://127.0.0.1:8000/creds/updatedusername\
+\
+Getting user profile:\
+
+\fs26 \cf3 \cb4 \expnd0\expndtw0\kerning0
+\CocoaLigature1 curl -X GET '
+\fs24 \cf2 \cb1 \kerning1\expnd0\expndtw0 \CocoaLigature0 http://127.0.0.1:8001/user/
+\f1\fs26 \cf7 \cb8 \expnd0\expndtw0\kerning0
+\CocoaLigature1 2f762111-bf92-4114-9176-e0f98c4d0d28
+\f0\fs24 \cf2 \cb1 \kerning1\expnd0\expndtw0 \CocoaLigature0 /profile'\
+\
+Updating a user:\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+curl -X PUT -H "Content-Type: application/json" -d '\{"data": \{  \
+  "username": "updatedusername",\
+  "f_name": "Mike",\
+  "l_name": "Hawk",\
+  "email": "mike_hawk@gmail.com",\
+  "description": "I joined bread to join bread",\
+  "dob": "2016-08-22",\
+  "city": "Willow Grove",\
+  "province": "Pennsylvania",\
+  "zipcode": "19090",\
+  "avatar": "avatarurl.com"\
+\}\}' http://127.0.0.1:8000/user/
+\f1\fs26 \cf7 \cb8 \expnd0\expndtw0\kerning0
+\CocoaLigature1 2f762111-bf92-4114-9176-e0f98c4d0d28
+\f0\fs24 \cf2 \cb1 \kerning1\expnd0\expndtw0 \CocoaLigature0 /profile\
+\pard\pardeftab720\partightenfactor0
+\
+Change user status:\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+curl -X PUT -H "Content-Type: application/json" -d '\{"data": \{  \
+  "status": "A"\
+\}\}' http://127.0.0.1:8000/user/
+\f1\fs26 \cf7 \cb8 \expnd0\expndtw0\kerning0
+\CocoaLigature1 2f762111-bf92-4114-9176-e0f98c4d0d28
+\f0\fs24 \cf2 \cb1 \kerning1\expnd0\expndtw0 \CocoaLigature0 /profile/status\
+\
+Create a project:\
+curl -X PUT -H "Content-Type: application/json" -d '\{"data": \{ \
+  "user_id": "
+\f1\fs26 \cf7 \cb8 \expnd0\expndtw0\kerning0
+\CocoaLigature1 37c232d1-01a7-4534-89da-86236a81045d
+\f0\fs24 \cf2 \cb1 \kerning1\expnd0\expndtw0 \CocoaLigature0 ",\
+  "display_name": "Project Bread",\
+  "category_id": "
+\f1\fs26 \cf7 \cb8 \expnd0\expndtw0\kerning0
+\CocoaLigature1 4f913917-705c-4134-90f9-8cc94bb2a09d
+\f0\fs24 \cf2 \cb1 \kerning1\expnd0\expndtw0 \CocoaLigature0 ",\
+  "project_description": "I joined bread to join bread",\
+  "created_ts": "2020-01-01",\
+  "deadline_ts": "2021-01-01",\
+  "existing_contributors": [\
+    \{"role": "Project Manager", "f_name": "Ben", "l_name": "Simmons", "description": "Manage the project"\},\
+    \{"role": "Marketing Manager", "f_name": "Simon", "l_name": "James", "description": "Manage the market"\},\
+    \{"role": "Software Developer", "description": "Develop the software", "user_id": "
+\f1\fs26 \cf7 \cb8 \expnd0\expndtw0\kerning0
+\CocoaLigature1 27e88e5e-b4d7-4d1a-b6ae-c7f68f57bbc3
+\f0\fs24 \cf2 \cb1 \kerning1\expnd0\expndtw0 \CocoaLigature0 "\}\
+  ],\
+  "recruiting_roles": [\
+    \{"role": "Mentor", "description": "Mentor us"\},\
+    \{"role": "Finance", "description": "Finance us"\},\
+    \{"role": "Product Manager", "description": "Manage the product"\}\
+  ]\
+\}\}' http://127.0.0.1:8000/project\
+\
+Create a basic project:\
+curl -X PUT -H "Content-Type: application/json" -d '\{"data": \{ \
+  "user_id": "
+\f1\fs26 \cf7 \cb8 \expnd0\expndtw0\kerning0
+\CocoaLigature1 809d94cb-72f4-4ed5-a98b-9c8e29e3bed8
+\f0\fs24 \cf2 \cb1 \kerning1\expnd0\expndtw0 \CocoaLigature0 ",\
+  "display_name": "Test Project",\
+  "category_id": "
+\f1\fs26 \cf7 \cb8 \expnd0\expndtw0\kerning0
+\CocoaLigature1 24947a74-a81f-4911-a735-8e7e7471f710
+\f0\fs24 \cf2 \cb1 \kerning1\expnd0\expndtw0 \CocoaLigature0 ",\
+  "project_description": "Testing contributors",\
+  "created_ts": "2020-01-01",\
+  "deadline_ts": "2021-01-01"\
+\}\}' http://127.0.0.1:8000/project\
+\
+\
+Searches for basic user info with email:\
+\pard\pardeftab720\partightenfactor0
+
+\fs26 \cf3 \cb4 \expnd0\expndtw0\kerning0
+\CocoaLigature1 curl -X GET '
+\fs24 \cf2 \cb1 \kerning1\expnd0\expndtw0 \CocoaLigature0 http://127.0.0.1:8000/user/
+\f1\fs26 \cf7 \cb8 \expnd0\expndtw0\kerning0
+\CocoaLigature1 mike_hawk_new@gmail.com
+\f0\fs24 \cf2 \cb1 \kerning1\expnd0\expndtw0 \CocoaLigature0 /basic'\
+\
+Load all categories:\
+
+\fs26 \cf3 \cb4 \expnd0\expndtw0\kerning0
+\CocoaLigature1 curl -X GET '
+\fs24 \cf2 \cb1 \kerning1\expnd0\expndtw0 \CocoaLigature0 http://127.0.0.1:8000/categories'\
+\
+Update a project's basic info:\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+curl -X PUT -H "Content-Type: application/json" -d '\{"data": \{ \
+  "display_name": "Project Marketing",\
+  "category_id": "
+\f1\fs26 \cf7 \cb8 \expnd0\expndtw0\kerning0
+\CocoaLigature1 ed6bd9bd-f1b6-418d-a07b-0114d7ed97d0
+\f0\fs24 \cf2 \cb1 \kerning1\expnd0\expndtw0 \CocoaLigature0 ",\
+  "project_description": "Bread does bread thingss",\
+  "deadline_ts": "2021-01-02"\
+\}\}' http://127.0.0.1:8000/project/
+\f1\fs26 \cf7 \cb8 \expnd0\expndtw0\kerning0
+\CocoaLigature1 70cb282b-5c49-4e74-a2d8-d6fc78bc167b
+\f0\fs24 \cf2 \cb1 \kerning1\expnd0\expndtw0 \CocoaLigature0 \
+\pard\pardeftab720\partightenfactor0
+\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+Add contributors/recruiting roles:\
+curl -X PUT -H "Content-Type: application/json" -d '\{"data": \{\
+  "add_contributors" : \{ \
+  	"existing_contributors": [\
+    	\{"role": "HR Manager", "f_name": "Ben", "l_name": "Simmons", "email": "bsimmons@email.com", "description": 	"HR the project"\},\
+    	\{"contributor_id": "
+\f1\fs26 \cf7 \cb8 \expnd0\expndtw0\kerning0
+\CocoaLigature1 4766925a-3ebb-47a4-97a7-8bb9290c9023
+\f0\fs24 \cf2 \cb1 \kerning1\expnd0\expndtw0 \CocoaLigature0 ", "f_name": "Simon", "l_name": "James", "email": 	"sjames@email.com"\},\
+    	\{"contributor_id": "
+\f1\fs26 \cf7 \cb8 \expnd0\expndtw0\kerning0
+\CocoaLigature1 ae80f639-ca81-4b67-89f7-e4a309d387e2
+\f0\fs24 \cf2 \cb1 \kerning1\expnd0\expndtw0 \CocoaLigature0 ", "user_id": "
+\f1\fs26 \cf7 \cb8 \expnd0\expndtw0\kerning0
+\CocoaLigature1 73c7574b-6bd7-4213-87bc-89e41a8a949f
+\f0\fs24 \cf2 \cb1 \kerning1\expnd0\expndtw0 \CocoaLigature0 "\}\
+  	],\
+  	"recruiting_roles": [\
+    	\{"role": "Solutions Architect", "description": "Architect and solutionize"\},\
+    	\{"contributor_id": "
+\f1\fs26 \cf7 \cb8 \expnd0\expndtw0\kerning0
+\CocoaLigature1 e2271a83-821f-43e3-88dd-c808af59336f
+\f0\fs24 \cf2 \cb1 \kerning1\expnd0\expndtw0 \CocoaLigature0 "\}\
+  	]\
+  \}\
+\}\}' http://127.0.0.1:8000/project/
+\f1\fs26 \cf7 \cb8 \expnd0\expndtw0\kerning0
+\CocoaLigature1 ee557d31-6f35-438e-b455-a340fc9e8170
+\f0\fs24 \cf2 \cb1 \kerning1\expnd0\expndtw0 \CocoaLigature0 /contributors\
+\pard\pardeftab720\partightenfactor0
+\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+Remove contributors/recruiting roles:\
+curl -X PUT -H "Content-Type: application/json" -d '\{"data": \{\
+  	"remove_contributors": [\
+    	\{"id": "
+\f1\fs26 \cf7 \cb8 \expnd0\expndtw0\kerning0
+\CocoaLigature1 4766925a-3ebb-47a4-97a7-8bb9290c9023
+\f0\fs24 \cf2 \cb1 \kerning1\expnd0\expndtw0 \CocoaLigature0 "\}\
+  	]\
+\}\}' http://127.0.0.1:8000/project/
+\f1\fs26 \cf7 \cb8 \expnd0\expndtw0\kerning0
+\CocoaLigature1 ee557d31-6f35-438e-b455-a340fc9e8170
+\f0\fs24 \cf2 \cb1 \kerning1\expnd0\expndtw0 \CocoaLigature0 /contributors\
+\pard\pardeftab720\partightenfactor0
+Cd user\
+Cd indecisiveid\
+Ls indecisiveid\
+Profile, projects -> collaborators \{status\}, friends, teams\
+Cd profile\
+\
+I'm trying to remove contributors from a project.\
+Cases:\
+1. A contributor has no user attached\
+2. A contributor has a user attached\
+}
